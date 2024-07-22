@@ -1,54 +1,61 @@
 $(document).ready(function () {
 
-    alertify.set('notifier','position', 'top-right');
+    alertify.set('notifier', 'position', 'top-right');
+
+    function updateTotalPrice(element) {
+        const row = element.closest('tr');
+        const price = parseFloat(row.querySelector('td:nth-child(3)').textContent);
+        const quantity = parseInt(row.querySelector('.quantityInput').value);
+        const totalPriceCell = row.querySelector('.totalPrice');
+        totalPriceCell.textContent = (price * quantity).toFixed(2);
+    }
 
     $(document).on('click', '.increment', function () {
-
         var $quantityInput = $(this).closest('.qtyBox').find('.qty');
         var productId = $(this).closest('.qtyBox').find('.prodId').val();
         var currentValue = parseInt($quantityInput.val());
 
-        if(!isNaN(currentValue)){
+        if (!isNaN(currentValue)) {
             var qtyVal = currentValue + 1;
             $quantityInput.val(qtyVal);
-            $quantityIncDec(productId, qtyVal);
+            updateQuantity(productId, qtyVal);
+            updateTotalPrice(this);
         }
     });
 
     $(document).on('click', '.decrement', function () {
-
         var $quantityInput = $(this).closest('.qtyBox').find('.qty');
         var productId = $(this).closest('.qtyBox').find('.prodId').val();
         var currentValue = parseInt($quantityInput.val());
 
-        if(!isNaN(currentValue) && currentValue > 1){
+        if (!isNaN(currentValue) && currentValue > 1) {
             var qtyVal = currentValue - 1;
             $quantityInput.val(qtyVal);
-            $quantityIncDec(productId, qtyVal);
+            updateQuantity(productId, qtyVal);
+            updateTotalPrice(this);
+        } else if (currentValue == 1) {
+            // Optionally handle removing the item
+            $quantityInput.val(0);
+            updateQuantity(productId, 0);
         }
     });
 
-    function $quantityIncDec(prodId, qty){
-
+    function updateQuantity(prodId, qty) {
         $.ajax({
             type: "POST",
             url: "orders-code.php",
             data: {
                 'productIncDec': true,
                 'product_id': prodId,
-                'quantity': qty,
+                'quantity': qty
             },
-            success: function(res) {
+            success: function (response) {
                 var res = JSON.parse(response);
-                console.log(res);
-
-               if(res.status == 200){
-                 // window.location.reload();
-                 $('#productArea').load(' #productContent');
-                      alertify.success(res.message);
-               }else{
-                      alertify.error(res.message);             
-               }
+                if (res.status == 200) {
+                    alertify.success(res.message);
+                } else {
+                    alertify.error(res.message);
+                }
             }
         });
     }

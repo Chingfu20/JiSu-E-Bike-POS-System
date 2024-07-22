@@ -115,13 +115,13 @@
                                     <td><?= $item['price']; ?></td>
                                     <td>
                                         <div class="input-group qtyBox">
-                                            <input type="hidden" value="<?= $item['product_id']; ?>" class="prodId" />
                                             <button class="input-group-text decrement">-</button>
+                                            <input type="hidden" value="<?= $item['product_id']; ?>" class="prodId" />
                                             <input type="text" value="<?= $item['quantity']; ?>" class="qty quantityInput" />
                                             <button class="input-group-text increment">+</button>
                                         </div>
                                     </td>
-                                    <td class="totalPrice"><?= number_format($item['price'] * $item['quantity'], 0); ?></td>
+                                    <td class="totalPrice"><?= number_format($item['price'] * $item['quantity'], ); ?></td>
                                     <td>
                                         <a href="order-item-delete.php?index=<?= $key; ?>" class="btn btn-danger">
                                             Remove
@@ -170,7 +170,7 @@
                 const qtyInput = this.parentElement.querySelector('.quantityInput');
                 let quantity = parseInt(qtyInput.value);
                 if (quantity < 999) {
-                    qtyInput.value = ++quantity;
+                    qtyInput.value = +quantity;
                     updateTotalPrice(this);
                 }
             });
@@ -181,7 +181,7 @@
                 const qtyInput = this.parentElement.querySelector('.quantityInput');
                 let quantity = parseInt(qtyInput.value);
                 if (quantity > 1) {
-                    qtyInput.value = --quantity;
+                    qtyInput.value = -quantity;
                     updateTotalPrice(this);
                 }
             });

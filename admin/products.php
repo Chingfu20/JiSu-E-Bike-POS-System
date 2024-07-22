@@ -16,7 +16,7 @@
             $query = "
                 SELECT p.id, p.image, p.name, p.status, 
                        IFNULL(SUM(oi.quantity), 0) AS sold_quantity, 
-                       (p.quantity - IFNULL(SUM(oi.quantity), 0)) AS available_quantity
+                       (p.quantity - IFNULL(SUM(oi.quantity), 0)) AS available_product
                 FROM products p
                 LEFT JOIN order_items oi ON p.id = oi.product_id
                 GROUP BY p.id, p.image, p.name, p.status, p.quantity
@@ -40,7 +40,7 @@
                                 <th>Image</th>
                                 <th>Name</th>
                                 <th>Status</th>
-                                <th>Available Quantity</th>
+                                <th>Available Product</th> <!-- Changed header text -->
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -63,7 +63,7 @@
                                     }
                                     ?>
                                 </td>
-                                <td class="text-center"><?= htmlspecialchars($item['available_quantity']) ?></td>
+                                <td class="text-center"><?= htmlspecialchars($item['available_product']) ?></td> <!-- Changed field name -->
                                 <td>
                                     <a href="products-edit.php?id=<?= urlencode($item['id']); ?>" class="btn btn-success btn-sm">Edit</a>
                                     <a href="products-delete.php?id=<?= urlencode($item['id']); ?>" class="btn btn-danger btn-sm">Delete</a>
