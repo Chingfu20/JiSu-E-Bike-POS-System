@@ -27,7 +27,7 @@
                                      style="width:100%;max-width:300px;border: 2px solid #ddd;" 
                                      alt="Product Image" />
                                 <div class="mt-2">
-                                    <h5 class="text-primary fw-bold">Price: ₱ <?= number_format($productData['price'], 2); ?></h5>
+                                    <h5 class="text-primary fw-bold">Price: ₱ <?= number_format($productData['price']); ?></h5>
                                 </div>
                             </div>
                             <div class="col-md-6 text-start">

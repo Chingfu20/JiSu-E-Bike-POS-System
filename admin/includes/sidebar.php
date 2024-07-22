@@ -6,23 +6,25 @@
                 <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                     <div class="sb-sidenav-menu">
                         <div class="nav">
-                            <div class="sb-sidenav-menu-heading">Core</div>
+                            <div class="sb-sidenav-menu-heading">JISU</div>
 
                             <a class="nav-link <?= $page == 'index.php' ? 'active':''; ?>" href="index.php">
-                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                              <div class="sb-nav-link-icon"><i class="fas fa-chart-line"></i></div>
                                 Dashboard 
                             </a>
 
                             <a class="nav-link <?= $page == 'order-create.php' ? 'active':''; ?>" 
-                                 href="order-create.php">
-                                <div class="sb-nav-link-icon"><i class="fas fa-bell-alt"></i></div>
-                                Create Order
+                               href="order-create.php">
+                                <div class="sb-nav-link-icon"><i class="fas fa-clipboard-list"></i></div>
+                               Create Order
                             </a>
 
+
                             <a class="nav-link <?= $page == 'orders.php' ? 'active':''; ?>" href="orders.php">
-                                <div class="sb-nav-link-icon"><i class="fas fa-list-alt"></i></div>
-                                Orders
+                               <div class="sb-nav-link-icon"><i class="fas fa-shopping-cart"></i></div>
+                               Orders
                             </a>
+
 
                             <div class="sb-sidenav-menu-heading">Interface</div>
 
@@ -30,7 +32,7 @@
                                 href="#"
                                 data-bs-toggle="collapse"
                                 data-bs-target="#collapseCategory" aria-expanded="false" aria-controls="collapseCategory">
-                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                                <div class="sb-nav-link-icon"><i class="fas fa-th-list"></i></div>
                                 Categories
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
@@ -45,7 +47,7 @@
                             <a class="nav-link <?= ($page == 'categories-create.php') || ($page == 'categories.php') ? 'show':''; ?>" href="#"
                                 data-bs-toggle="collapse"
                                 data-bs-target="#collapseProduct" aria-expanded="false" aria-controls="collapseProduct">
-                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                                <div class="sb-nav-link-icon"><i class="fas fa-box"></i></div>
                                 Products
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
@@ -91,7 +93,7 @@
                                 data-bs-target="#collapseCustomer"
                                 aria-expanded="false" aria-controls="collapseCustomer">
 
-                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                                <div class="sb-nav-link-icon"><i class="fas fa-users"></i></div>
                                 Customer
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
@@ -107,7 +109,7 @@
                                 data-bs-target="#collapseAdmins"
                                 aria-expanded="false" aria-controls="collapseAdmins">
 
-                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                                <div class="sb-nav-link-icon"><i class="fas fa-user"></i></div>
                                 Admins/Staff
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
