@@ -110,7 +110,7 @@
                                 aria-expanded="false" aria-controls="collapseAdmins">
 
                                 <div class="sb-nav-link-icon"><i class="fas fa-user"></i></div>
-                                Admins/Staff
+                                Admins
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
                             <div class="collapse" id="collapseAdmins" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
