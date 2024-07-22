@@ -3,7 +3,7 @@
 <footer class="py-4 bg-light mt-auto">
     <div class="container-fluid px-4">
         <div class="d-flex align-items-center justify-content-between small">
-            <div class="text-muted">Develop by 4rth year student&copy; JiSu POS System 2024</div>
+            <div class="text-muted">Develop by 4rth year student&copy; JiSu E-Bike POS System 2024</div>
             <div>
                 <a href="#">Privacy Policy</a>
                 &middot;
