@@ -16,6 +16,7 @@
             $query = "
                 SELECT p.id, p.image, p.name, p.status, 
                        IFNULL(SUM(oi.quantity), 0) AS sold_quantity, 
+                       p.quantity AS total_quantity,
                        (p.quantity - IFNULL(SUM(oi.quantity), 0)) AS available_product
                 FROM products p
                 LEFT JOIN order_items oi ON p.id = oi.product_id
@@ -63,7 +64,7 @@
                                     }
                                     ?>
                                 </td>
-                                <td class="text-center"><?= htmlspecialchars($item['available_product']) ?></td> <!-- Changed field name -->
+                                <td class="text-center"><?= htmlspecialchars($item['available_product']) ?></td> <!-- Display available product count -->
                                 <td>
                                     <a href="products-edit.php?id=<?= urlencode($item['id']); ?>" class="btn btn-success btn-sm">Edit</a>
                                     <a href="products-delete.php?id=<?= urlencode($item['id']); ?>" class="btn btn-danger btn-sm">Delete</a>
