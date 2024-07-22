@@ -70,7 +70,7 @@
 
 <script>
     function fetchProductPrice(productName) {
-        // AJAX call to fetch product price based on product name
+     
         $.ajax({
             url: 'fetch_price.php',
             type: 'POST',
