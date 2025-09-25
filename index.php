@@ -7,7 +7,7 @@
                 
                 <?php alertMessage(); ?>
 
-                <h1 class="mt-3">JiSu E-Bike POS System</h1>
+                <h1 class="mt-3">JiSu E-Bike pOS System</h1>
 
                 <?php if(!isset($_SESSION['loggedIn'])) : ?>
                 <a href="login.php" class="btn btn-primary mt-4">Login</a>
